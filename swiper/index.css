@@ -1,0 +1,28 @@
+* {
+  padding: 0;
+  margin: 0;
+  user-select: none;
+}
+.swiper-continer {
+  width: 477px;
+  height: 640px;
+  overflow: hidden;
+  margin: 15px auto;
+}
+.swiper-list {
+  width: 100%;
+  height: 640px;
+  display: flex;
+  flex-direction: column;
+  transform: translateY(0);
+  transition: transform 0.4s;
+}
+.swiper-list > * {
+  width: 100%;
+  height: 640px;
+  border-bottom: solid 1px red;
+}
+img {
+  width: 100%;
+  height: 640px;
+}

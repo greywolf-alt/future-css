@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- <link rel="preload" href="./1649132655.png" as="image"> -->
+  <title>image-refetch</title>
+</head>
+
+<body>
+  <button onclick="cacheImage()">cache image</button>
+  <button onclick="addImage()">add image</button>
+  <script>
+    function cacheImage() {
+      const img = new Image()
+      img.src = './1.png'
+      console.log(img)
+    }
+    function addImage() {
+      const img = new Image()
+      img.src = './1.png'
+      document.body.appendChild(img)
+    }
+  </script>
+</body>
+
+</html>
