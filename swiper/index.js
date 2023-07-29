@@ -16,7 +16,8 @@ function onMousedown(event) {
   isDown = true
   const { clientY } = event
   startY = lastY = clientY
-  startTranform = getTransform()
+  const transform = swiperList.style.transform
+  startTranform = parseInt(transform.substring(transform.indexOf('(') + 1, transform.lastIndexOf(')'))) || 0
   swiperList.style.transitionDuration = '0s'
 }
 
