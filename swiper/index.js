@@ -32,8 +32,10 @@ function onMousemove(event) {
 function onMouseup(event) {
   if (isDown) {
     const { clientY: endY } = event
-    let value = startY - endY > 0 ? -height : height
-    setTranform(startTranform + value)
+    if (startY !== endY) {
+      let value = startY - endY > 0 ? -height : height
+      setTranform(startTranform + value)
+    }
     isDown = false
     startY = lastY = startTranform = 0
     swiperList.style.transitionDuration = '0.4s'
