@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <button onclick="selectFirstParagraph(0)">select first paragraph</button>
+  <button onclick="selectFirstParagraph(1)">select second paragraph</button>
+  <button onclick="selectFirstParagraph(2)">select third paragraph</button>
+  <div id="container">
+    <p>Web 存储标准，the Storage Standard，定义了一个通用的、共享的存储系统，供所有 API 和技术使用，以存储各个网站的内容可访问数据。Storage API
+      允许网站的代码、Web应用程序知道它们可以使用、<span>已经使用多少存储空间。</span> 空间不足时，用户代理会自动清理站点数据，以便为其他用途腾出空间。而 Storage API
+      甚至可以控制：在执行清理之前，是否需要提醒代码或 Web 应用程序，以便作出反应。</p>
+    <p>由存储标准描述并使用存储 API 进行交互的站点存储系统，由每个 origin 的单个站点存储单元（site storage unit）组成。实际上，每个 Web 站点或 Web
+      应用程序都有自己的存储单元，用于存储数据。<span>下图显示了一个站点存储池，</span> 其中包含三个存储单元，显示了存储单元如何可以在其中存储不同的数据类型，并且可能具有不同的配额（最大存储限制）。</p>
+    <p>每个站点存储单元中的实际数据存储，被称为它的框 / 盒（box）。 <span>每个站点存储单元只有一个盒，</span>盒中包含其所有数据，且有一个盒存储模式 / 存储模式（boxmode），用于描述其数据保留策略。目前有两种模式：</p>
+  </div>
+  <script>
+    /**
+     * 获取某个元素的所有文本元素
+     * 并且选中该元素内的所有文本元素
+     * 
+    */
+    const container = document.getElementById('container')
+    const paragraphs = container.getElementsByTagName('p')
+    function selectFirstParagraph(num = 0) {
+      getSelection().removeAllRanges()
+      const targetParagraph = paragraphs[num]
+      const range = new Range()
+
+      // range.selectNode(targetParagraph.firstChild)
+      const allTextNodes = [];
+      const treeWalker = document.createTreeWalker(targetParagraph, NodeFilter.SHOW_TEXT);
+      let currentNode = treeWalker.nextNode();
+      while (currentNode) {
+        allTextNodes.push(currentNode);
+        currentNode = treeWalker.nextNode();
+      }
+      range.setStart(allTextNodes[0], 0)
+      const endNode = allTextNodes[allTextNodes.length - 1]
+      console.log(endNode)
+      range.setEnd(endNode, endNode.length)
+      getSelection().addRange(range)
+    }
+  </script>
+</body>
+
+</html>
