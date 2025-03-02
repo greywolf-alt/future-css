@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    #getFile {
+      --height: 30px;
+      border: solid 1px red;
+      height: var(--height);
+      width: 80px;
+      line-height: var(--height);
+      text-align: center;
+      border-radius: 4px;
+      padding: 0;
+      margin: 0;
+      background-color: #fff;
+      cursor: pointer;
+    }
+  </style>
+  <title>Document</title>
+</head>
+<body>
+  <button id="getFile">get file</button>
+  <script>
+    const getFile = document.getElementById('getFile')
+    getFile.addEventListener('click', async function(event) {
+      const result = await window.showOpenFilePicker()
+      for(const item of result) {
+        const file = await item.getFile()
+        console.log(file)
+      }
+    })
+  </script>
+</body>
+</html>
