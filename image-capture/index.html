@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <video src="../assets/video.MP4" height="500" loop autoplay controls></video>
+  <button id="grabFrameButton" onclick="onGetUserMediaButtonClick()">grabFrameButton</button>
+  <button id="takePhotoButton" onclick="onGrabFrameButtonClick()" >takePhotoButton</button>
+  <canvas id="grabFrameCanvas"></canvas>
+  <canvas id="takePhotoCanvas"></canvas>
+  <script src="./index.js"></script>
+</body>
+</html>

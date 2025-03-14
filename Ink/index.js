@@ -23,7 +23,7 @@ canvas.addEventListener('pointermove', async (evt) => {
     style.color = `rgb(${r} ${g} ${b} / 100%)`
 
     move_cnt = 0
-    div.style.backgroundColor = `rgb(${r} ${g} ${b}) / 60%`
+    div.style.backgroundColor = `rgb(${r} ${g} ${b}  / 60%)`
   }
   move_cnt += 1
   console.log(style.color)
