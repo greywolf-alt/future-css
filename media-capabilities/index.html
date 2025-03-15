@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <div>media capabilities</div>
+  <script>
+    if ('mediaCapabilities' in navigator) {
+      console.log(navigator.mediaCapabilities)
+      const audioFileConfiguration = {
+        type: 'file',
+        audio: {
+          contentType: 'audio/mp3',
+          channels: 2,
+          birate: 132700,
+          samplerate: 5200
+        }
+      }
+      navigator.mediaCapabilities.decodingInfo(audioFileConfiguration).then(res => {
+        console.log(res)
+      })
+    }
+  </script>
+</body>
+
+</html>
