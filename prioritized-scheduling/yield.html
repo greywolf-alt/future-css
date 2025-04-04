@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    async function slowTask() {
+      console.log('start',performance.now())
+      whileMillion()
+      scheduler.yield()
+      whileMillion()
+      console.log('start',performance.now())
+      whileMillion()
+      whileMillion()
+      console.log('start',performance.now())
+    }
+    function whileMillion() {
+      for(let i = 0; i < 100; i++) {
+        console.log('while-million')
+      }
+    }
+    slowTask()
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    @property --offset {
+      syntax: '<length>';
+      inherits: false;
+      initial-value: 0;
+    } 
+
+    @property --repeat {
+      syntax: '<transform-list>';
+      inherits: false;
+      initial-value: no-repeat;
+    }
+
+    div {
+      text-underline-offset: var(--offset);
+      text-decoration: underline;
+      line-height: 1.7em;
+      transition: --offset 400ms, text-decoration-color 400ms;
+      cursor: pointer;
+      background-image: url(../assets/icon.png);
+      background-position: -100% 0;
+    }
+
+    div:hover {
+      --offset: 10px;
+      color: orange;
+      text-decoration-color: orange;
+    }
+  </style>
+</head>
+
+<body>
+  <div>
+    The Prioritized Task Scheduling API provides a standardized way to prioritize all tasks belonging to an application,
+  </div>
+</body>
+
+</html>
